@@ -3,6 +3,7 @@ package com.vti.kshop.mapper;
 import com.vti.kshop.dto.CarDto;
 import com.vti.kshop.entity.Car;
 import com.vti.kshop.form.CarCreateForm;
+import com.vti.kshop.form.CarUpdateForm;
 
 public class CarMapper {
     public static Car map(CarCreateForm form) {
@@ -29,5 +30,11 @@ public class CarMapper {
         dto.setCatalogs(car.getCatalogs());
         dto.setCarMaker(car.getCarMaker());
         return dto;
+    }
+
+    public static void map(CarUpdateForm form, Car car){
+        car.setCustomerName(form.getCustomerName());
+        car.setCatalogs(form.getCatalogs());
+        car.setCarMaker(form.getCarMaker());
     }
 }
