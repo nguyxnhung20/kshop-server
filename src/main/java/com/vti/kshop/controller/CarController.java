@@ -5,6 +5,7 @@ import com.vti.kshop.entity.Car;
 import com.vti.kshop.form.CarCreateForm;
 import com.vti.kshop.form.CarUpdateForm;
 import com.vti.kshop.service.CarService;
+import com.vti.kshop.validation.CarPkExists;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -35,7 +36,7 @@ public class CarController {
     }
 
     @DeleteMapping("/api/v1/cars")
-    public void deleteById(@RequestBody Car.PrimaryKey id) {
+    public void deleteById(@RequestBody @CarPkExists Car.PrimaryKey id) {
         carService.deleteById(id);
     }
 }

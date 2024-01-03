@@ -4,6 +4,7 @@ import com.vti.kshop.dto.AccessoryDto;
 import com.vti.kshop.form.AccessoryCreateForm;
 import com.vti.kshop.form.AccessoryUpdateForm;
 import com.vti.kshop.service.AccessoryService;
+import com.vti.kshop.validation.AccessoryExists;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -29,12 +30,12 @@ public class AccessoryController {
     }
 
     @PutMapping("/api/v1/accessories/{id}")
-    public AccessoryDto update(@RequestBody @Valid AccessoryUpdateForm form,@PathVariable("id") Long id){
+    public AccessoryDto update(@RequestBody @Valid AccessoryUpdateForm form,@PathVariable("id") @AccessoryExists Long id){
         return accessoryService.update(form, id);
     }
 
     @DeleteMapping("/api/v1/accessories/{id}")
-    public void deleteById(@PathVariable("id") Long id){
+    public void deleteById(@PathVariable("id") @AccessoryExists Long id){
         accessoryService.deleteById(id);
     }
 }
