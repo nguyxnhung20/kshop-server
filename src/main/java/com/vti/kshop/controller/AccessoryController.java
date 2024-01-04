@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @AllArgsConstructor
 @Validated
-@CrossOrigin("http://127.0.0.1:5500/")
+@CrossOrigin("https://nguyxnhung20.github.io/")
 public class AccessoryController {
     private final AccessoryService accessoryService;
 
